@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot='start'>
+      <ion-back-button defaultHref="/students-mumbere"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ student.name}}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)='onDeleteStudent()'>
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col>
+      <ion-img [src]='student.image'>
+      </ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h1 class="ion-text-center">{{ student.name}}</h1>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-padding">
+      <p class="ion-text-justify">{{ student.description}}</p>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="6" *ngFor='let img of student.gallery'>
+      <ion-card>
+        <ion-img [src]='img'>
+        </ion-img>
+        <ion-item>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>i</ion-label>
+          <ion-button fill="outline" slot="end">Voir</ion-button>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+</ion-content>

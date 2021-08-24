@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>student-mumbere</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor='let student of students' [routerLink]="['./', student.id]">
+      <ion-avatar slot="start">
+        <ion-img [src]='student.image'></ion-img>
+      </ion-avatar>
+      <ion-label>{{student.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
