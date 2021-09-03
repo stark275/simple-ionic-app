@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ShowMumberePageRoutingModule } from './show-mumbere-routing.module';
+import { DecouvertePageRoutingModule } from './decouverte-routing.module';
 
-import { ShowMumberePage } from './show-mumbere.page';
+import { DecouvertePage } from './decouverte.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ShowMumberePageRoutingModule
+    DecouvertePageRoutingModule
   ],
-  declarations: [ShowMumberePage]
+  declarations: [DecouvertePage]
 })
-export class ShowMumberePageModule {}
+export class DecouvertePageModule {}
