@@ -1,3 +1,36 @@
 <ion-app>
+  <ion-menu slot="start" menuId="m1" contentId="main">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Jolie Place
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle menu='m1'>
+      <ion-item lines='none' routerLink='/places/tabs/decouverte'>
+        <ion-icon name='business' slot='start'></ion-icon>
+        <ion-label>Découvrir les Places</ion-label>
+      </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle menu='m1'>
+      <ion-item lines='none' routerLink='/reservations'>
+        <ion-icon name='checkbox-outline' slot='start'></ion-icon>
+        <ion-label>Vos Réservations</ion-label>
+      </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle menu='m1'>
+      <ion-item lines='none' (click)='onLogout()'>
+        <ion-icon name='exit' slot='start'></ion-icon>
+        <ion-label>Déconnexion</ion-label>
+      </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+  <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-menu>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

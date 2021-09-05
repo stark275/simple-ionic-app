@@ -9,6 +9,10 @@ const routes: Routes = [
     component: OffresPage
   },
   {
+    path: 'nouvelle-offre',
+    loadChildren: () => import('./nouvelle-offre/nouvelle-offre.module').then( m => m.NouvelleOffrePageModule)
+  },
+  {
     path: 'editer-offre',
     loadChildren: () => import('./editer-offre/editer-offre.module').then( m => m.EditerOffrePageModule)
   },

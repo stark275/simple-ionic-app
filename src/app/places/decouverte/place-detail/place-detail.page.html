@@ -1,9 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>place-detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ place.titre }}</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-button color='primary' (click)='onReserverPlace()'> Reserver</ion-button>
 </ion-content>

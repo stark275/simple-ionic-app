@@ -31,11 +31,11 @@ const routes: Routes = [
             loadChildren: () => import('./offres/offres.module').then( m => m.OffresPageModule)
 
           },
-          // {
-          //   path: 'nouvelle',
-          //   loadChildren: () => import('./offres/nouvelle-offre/nouvelle-offre.module').then( m => m.NouvelleOffrePageModule)
+          {
+            path: 'nouvelle',
+            loadChildren: () => import('./offres/nouvelle-offre/nouvelle-offre.module').then( m => m.NouvelleOffrePageModule)
 
-          // },
+          },
           {
             path: 'editer/:placeId',
             loadChildren: () => import('./offres/editer-offre/editer-offre.module').then( m => m.EditerOffrePageModule)
