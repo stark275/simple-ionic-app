@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { ModalController, NavController } from '@ionic/angular';
+import { ActionSheetController, ModalController, NavController } from '@ionic/angular';
 import { CreateReservationComponent } from 'src/app/reservations/create-reservation/create-reservation.component';
 import { Place } from '../../place.model';
 import { PlacesService } from '../../places.service';
@@ -19,7 +19,8 @@ export class PlaceDetailPage implements OnInit {
     private modalController: ModalController,
     private navCtrl: NavController,
     private route: ActivatedRoute,
-    private placesService: PlacesService
+    private placesService: PlacesService,
+    private actionSheetCtrl: ActionSheetController
 
   ) { }
 
@@ -36,20 +37,63 @@ export class PlaceDetailPage implements OnInit {
 
   onReserverPlace() {
     //this.router.navigateByUrl('/places/tabs/decouverte');
-    this.modalController
-      .create({
-        component:CreateReservationComponent,
-        componentProps: {selectedPlace:this.place}
-      })
-      .then(modalEl =>{
-        modalEl.present();
-        return modalEl.onDidDismiss();
-      })
-      .then(resultData =>{
-        console.log(resultData.data, resultData.role);
-        if (resultData.role==='confirm'){
-        console.log('reservee!');
+    this.actionSheetCtrl.create({
+      header:'choisissez une action',
+      buttons:[
+        {
+          text:'choisissez une action.',
+          handler:()=>{
+            this.openModalReserver('select');
+          }
+        },
+        {
+          text:'date aléatoire',
+          handler:()=>{
+            this.openModalReserver('random');
+          }
+        },
+        {
+         text:'annulé',
+         role: 'cancel'
         }
-      });
+      ]
+    }).then(actionSheeEl=>{
+      actionSheeEl.present();
+    });
+
+
+    // this.modalController
+    //   .create({
+    //     component:CreateReservationComponent,
+    //     componentProps: {selectedPlace:this.place}
+    //   })
+    //   .then(modalEl =>{
+    //     modalEl.present();
+    //     return modalEl.onDidDismiss();
+    //   })
+    //   .then(resultData =>{
+    //     console.log(resultData.data, resultData.role);
+    //     if (resultData.role==='confirm'){
+    //     console.log('reservee!');
+    //     }
+    //   });
+  }
+
+  openModalReserver(mode: 'select' | 'random' ){
+    console.log(mode);
+    this.modalController.create({
+      component:CreateReservationComponent,
+      componentProps: {selectedPlace:this.place}
+    })
+    .then(modalEl =>{
+      modalEl.present();
+      return modalEl.onDidDismiss();
+    })
+    .then(resultData =>{
+      console.log(resultData.data, resultData.role);
+      if (resultData.role ==='confirm'){
+        console.log('reservee!');
+      }
+    });
   }
 }
