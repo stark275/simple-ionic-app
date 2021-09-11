@@ -3,11 +3,17 @@
     <ion-title>Découvrir les places</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-segment (ionChange)='onFilterIUpdate($event)'>
+  <ion-segment-button value='tous' checked>Places </ion-segment-button>
+  <ion-segment-button value='reservable'>Places Reservables</ion-segment-button>
+</ion-segment>
 
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col size='12' size-sm='8' offset-sm='2' text-center >
+
+
         <ion-card>
           <ion-card-header>
             <ion-card-title>{{loadedPlaces[0].titre}}</ion-card-title>
@@ -22,21 +28,20 @@
               routerDirection='forward'
               [routerLink]="['/','places','tabs','decouverte',loadedPlaces[0].id]">Plus
               </ion-button>
-
-            </div> 
-          
-       
+            </div>
         </ion-card>
+
       </ion-col>
     </ion-row>
+
     <ion-row>
       <ion-col size='12' size-sm='8' offset-sm='2' text-center >
          <ion-list>
-           <ion-item *ngFor='let place of loadedPlaces.slice(1)'
-           [routerLink]="['/','places','tabs','decouverte',place.id]"detail>
-           
-           
-              <ion-thumbnail>
+          <ion-virtual-scroll [items]='listloadedPlaces'>
+           <ion-item
+           [routerLink]="['/','places','tabs','decouverte',place.id]" detail *virtualItem='let place'>
+
+              <ion-thumbnail slot="start">
                 <ion-img [src]='place.imageUrl'></ion-img>
             </ion-thumbnail>
                 <ion-label>
@@ -44,6 +49,7 @@
                   <h2>{{place.description}}</h2>
                </ion-label>
           </ion-item>
+          </ion-virtual-scroll>
           </ion-list>
       </ion-col>
       </ion-row>
