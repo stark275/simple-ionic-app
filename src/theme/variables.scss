@@ -101,8 +101,7 @@
     --ion-color-primary: #e82c38;
     --ion-color-primary-rgb: 56, 128, 255;
 
-    --ion-toolbar-background:var(--ion-color-primary);
-    --ion-toolbar-color:var(--ion-color-primary-contrast);
+
 
     --ion-color-secondary: #50c8ff;
     --ion-color-secondary-rgb: 80,200,255;
@@ -246,5 +245,7 @@
     --ion-tab-bar-background: #1f1f1f;
 
     --ion-card-background: #1e1e1e;
+    --ion-toolbar-background:var(--ion-color-primary);
+    --ion-toolbar-color:var(--ion-color-primary-contrast);
   }
 }

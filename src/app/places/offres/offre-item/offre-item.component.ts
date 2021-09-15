@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Place } from '../../place.model';
 
 @Component({
   selector: 'app-offre-item',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OffreItemComponent implements OnInit {
 
+  @Input() offre: Place;
   constructor() { }
 
   ngOnInit() {}
+
+  getDummyDate(){
+     return new Date();
+  }
+
 
 }

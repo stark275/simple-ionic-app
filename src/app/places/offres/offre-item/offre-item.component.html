@@ -1,3 +1,15 @@
-<p>
-  offre-item works!
-</p>
+<ion-item [routerLink]="['/','places','tabs','offres',offre.id]">
+  <ion-thumbnail slot='start'>
+    <ion-img [src]="offre.imageUrl"></ion-img>
+  </ion-thumbnail>
+  <ion-label>
+    <h1>{{offre.titre}}</h1>
+    <div  class="offre-detail">
+      <ion-icon name='calendar' color='tertiary' ></ion-icon>
+      <ion-text color='primary'  class='espace-gauche'>{{getDummyDate() | date}}</ion-text>
+      <span class='espace-gauche'>à</span>
+      <ion-icon name='calendar' color='tertiary'  class='espace-gauche'></ion-icon>
+      <ion-text color='primary' class='espace-gauche'>{{getDummyDate() | date}}</ion-text>
+    </div>
+  </ion-label>
+</ion-item>

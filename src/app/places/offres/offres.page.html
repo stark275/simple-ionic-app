@@ -1,9 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button slot="start">
-      <ion-menu-button  menu='m1'>
-      </ion-menu-button>
-    </ion-button>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
 
     <ion-title>offres</ion-title>
     <ion-buttons slot="primary">
@@ -21,18 +20,8 @@
     <ion-list>
 
       <ion-item-sliding *ngFor='let offre of offres'  #SlidingItem>
-        <ion-item  >
-          <ion-thumbnail slot='start'>
-            <ion-img [src]="offre.imageUrl"></ion-img>
-          </ion-thumbnail>
 
-          <ion-label>
-            <h2>{{offre.titre}}</h2>
-          </ion-label>
-
-
-        </ion-item>
-
+        <app-offre-item [offre]='offre'></app-offre-item>
         <ion-item-options>
           <ion-item-option color='primary' (click)='onEdit(offre.id,SlidingItem)'>
             <ion-icon name='create' slot='icon-only'>
